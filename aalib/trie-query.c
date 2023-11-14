@@ -8,6 +8,9 @@
 
 
 /** find a key within the trie */
+/**
+ * NOTE: This functions is NOT explained in the lecture slides
+ */
 void *trieLookupKey(
 		KeyValueTrie *root,
 		AAKeyType key, size_t keylength,

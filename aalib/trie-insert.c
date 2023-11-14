@@ -20,6 +20,9 @@ trie_subtreeSearchComparator(const void *keyValue, const void *nodePtr)
 
 
 /** create a whole chain for the rest of the key */
+/**
+ * NOTE: This functions IS explained in the lecture slides
+ */
 static TrieNode *
 trie_create_chain(AAKeyType key, size_t keylength, void *value, int *cost)
 {
@@ -31,6 +34,9 @@ trie_create_chain(AAKeyType key, size_t keylength, void *value, int *cost)
 }
 
 /** add the given chain to the list of tries in the current node */
+/**
+ * NOTE: This functions is NOT explained in the lecture slides
+ */
 static int
 trie_add_chain(
 		TrieNode **subtreeList, int nSubtries,
@@ -49,6 +55,9 @@ trie_add_chain(
 
 
 /** link the provided key into the current chain */
+/**
+ * NOTE: This functions IS explained in the lecture slides
+ */
 static int
 trie_link_to_chain(TrieNode *current,
 		AAKeyType key, size_t keylength,
@@ -64,6 +73,9 @@ trie_link_to_chain(TrieNode *current,
 }
 
 
+/**
+ * NOTE: This functions IS explained in the lecture slides
+ */
 int
 trieInsertKey(KeyValueTrie *root,
 		AAKeyType key, size_t keylength,

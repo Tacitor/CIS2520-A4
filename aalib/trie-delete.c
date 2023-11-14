@@ -8,6 +8,9 @@
 
 
 /** recursively roll up the chain */
+/**
+ * NOTE: This functions IS explained in the lecture slides
+ */
 static int
 walk_chain_to_delete(
 		void **value,
@@ -21,6 +24,9 @@ walk_chain_to_delete(
 }
 
 /** delete a key from the trie */
+/**
+ * NOTE: This functions IS explained in the lecture slides
+ */
 void *trieDeleteKey(
 		KeyValueTrie *root,
 		AAKeyType key, size_t keylength,
