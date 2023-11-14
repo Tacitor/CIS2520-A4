@@ -66,8 +66,6 @@ trieDeleteNode(TrieNode *node)
 	free(node);
 }
 
-
-
 #define	INDENT	4
 
 /** recursive helper for printing */
