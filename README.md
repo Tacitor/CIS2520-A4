@@ -1,8 +1,8 @@
 
 # Associative arrays implemented using tries
 
-## Name:
-## ID:
+## Name: Lukas Krampitz
+## ID: 1192170
 
 This `README.md` file describes an implementation of associative
 arrays using *tries*, and evaluates when these are superior to
@@ -11,10 +11,11 @@ the use of a *hash table* based implementation.
 # External resources used:
 
 Have you used external tools to complete your work?
+None
 
 # State of the current implementation
 
-*i.e.;* does everything work
+Incomplete
 
 # Hash tables:
 
