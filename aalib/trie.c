@@ -16,6 +16,12 @@ trieCreateTrie()
 
 	root = (KeyValueTrie *) malloc(sizeof(KeyValueTrie));
 
+	/**
+	 * TO DO: 
+	 * 1) simply initialize "root->subtries" to NULL here (and get rid of the loop altogether) -- this will mean that you will want to create the table somewhere else before you attempt to insert values into it
+	 * OR
+	 * 2) create a table attached to root->subtries here before the loop begins.
+	 */
 	for (i = 0 ; i < 256; i++) {
 		root->subtries[i] = NULL;
 	}
