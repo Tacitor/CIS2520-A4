@@ -43,6 +43,9 @@ void *trieDeleteKey(
 	/**
 	 ** TO DO: search for the right subchain and delete the key from it
 	 **/
+
+	//THIS IS NOT THE RIST CALL, I JUST WANT TO STOP SEEING WARNINGS
+	walk_chain_to_delete(NULL, NULL, 0, 0, NULL);
 	
 	return valueFromDeletedKey;
 }
