@@ -40,6 +40,9 @@ trie_create_chain(AAKeyType key, int keyStartPos , size_t keylength, void *value
 	{
 		current->value = value;
 		current->isKeySoHasValue = 1; //set this to being a valid key
+
+		//debug insertion with linking to existing chains
+		//printf("DONE: %s, with : %ld\n", key, keylength - keyStartPos);
 	}
 	else
 	{
@@ -102,14 +105,34 @@ trie_add_chain(
  */
 static int
 trie_link_to_chain(TrieNode *current,
-		AAKeyType key, size_t keylength,
+		AAKeyType key, int keyStartPos, size_t keylength,
 		void *value, int *cost)
 {
 	// TO DO: add the remaining portions of the key
 	// into this chain, forming a new branch if and when
 	// they stop matching existing letters within the subtries
 
-	// TO DO: you probably want to replace this return statement
+	TrieNode *child = trie_search_for_matching_chain(current->subtries, current->nSubtries, key[keyStartPos + 1]);
+
+	//debug insertion with linking to existing chains
+	//printf("Key: %s, currentStartPOs: %c, len-start: %ld, Child is NULL: %d\n", key, key[keyStartPos], keylength - keyStartPos, child == NULL);
+
+	// Either there was no result found or
+	// key[keyStartPos + 1] is the null terminator of the string
+	if (child == NULL || (keylength - keyStartPos - 1 == 1))
+	{
+		// add the remaining letters as a side chain
+		current->nSubtries = trie_add_chain(&(current->subtries), current->nSubtries, &(key[keyStartPos + 1]), trie_create_chain(key, keyStartPos + 1, keylength, value, cost));
+
+		return current->nSubtries;
+	}
+	else
+	{
+		// recurse
+		return trie_link_to_chain(child, key, keyStartPos + 1, keylength, value, cost);
+	}
+
+	// DONE: you probably want to replace this return statement
 	// with your own code
 	return -1;
 }
@@ -157,13 +180,11 @@ trieInsertKey(KeyValueTrie *root,
 		}
 		else
 		{
-			// link-to-chain(c, κ, l, v)
-			//a temp call to trie_link_to_chain()
-			trie_link_to_chain(NULL, NULL, 0, NULL, NULL);
+			return trie_link_to_chain(chain, key, 0, keylength, value, cost);
 		}
 	}
 
-	// TO DO: you probably want to replace this return statement
+	// DONE: you probably want to replace this return statement
 	// with your own code
 	return -1;
 }

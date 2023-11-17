@@ -1,3 +1,2 @@
-ApplePiss 	Pyrus malus
-Cherry 	Test Data
-Atest 	New Test
+Apple 	Pyrus malus
+App 	New Test
