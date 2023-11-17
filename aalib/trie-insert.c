@@ -91,8 +91,6 @@ trie_add_chain(
 	// just append it for now cause that's easier
 	(*subtreeListPTR)[nSubtries - 1] = newChain;
 
-	//printf("\nChecking added chain of key: %c\n", (*subtreeListPTR)[0]->letter);
-
 	// DONE: you probably want to replace this return statement
 	// with your own code
 	return nSubtries;
@@ -108,7 +106,7 @@ trie_link_to_chain(TrieNode *current,
 		AAKeyType key, int keyStartPos, size_t keylength,
 		void *value, int *cost)
 {
-	// TO DO: add the remaining portions of the key
+	// DONE: add the remaining portions of the key
 	// into this chain, forming a new branch if and when
 	// they stop matching existing letters within the subtries
 
@@ -164,7 +162,7 @@ trieInsertKey(KeyValueTrie *root,
 	}
 	else // If the trie is not empty and there are already existing chains
 	{
-		// TO DO: find the subtrie with the leading letter of the
+		// DONE: find the subtrie with the leading letter of the
 		// key, and insert the new key into the correct subtrie
 		// chain based on that letter
 
