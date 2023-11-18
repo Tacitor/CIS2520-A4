@@ -126,20 +126,40 @@ triePrint(FILE *fp, KeyValueTrie *root)
 
 /**
  * Given a list of nodes find the node that matches the given letter.
- * 
+ *
  * @return may return NULL if no match. Otherwise return the TrieNode* that points to the node with the matching letter
-*/
-TrieNode* trie_search_for_matching_chain(struct TrieNode **subtries, int nSubtries, TrieLetter letter, int *cost) {
+ */
+TrieNode *trie_search_for_matching_chain(struct TrieNode **subtries, int nSubtries, TrieLetter letter, int *cost)
+{
 
-	//itterate over the list of nodes
-	for (int i = 0; i < nSubtries; i++) {
-		if (trie_subtreeSearchComparator(&letter, &(subtries[i])) == 0) {
+	// create a local lost varible
+	int localCost = 0;
+
+	// itterate over the list of nodes
+	for (int i = 0; i < nSubtries; i++)
+	{
+		localCost++;
+
+		if (trie_subtreeSearchComparator(&letter, &(subtries[i])) == 0)
+		{
+
+			// if the cost pointer isn't null then the local cost can be added on
+			if (cost != NULL)
+			{
+				*cost += localCost;
+			}
+
 			return subtries[i];
 		}
 	}
 
-	//return null if no match
-	return NULL;
+	// if the cost pointer isn't null then the local cost can be added on
+	if (cost != NULL)
+	{
+		*cost += localCost;
+	}
 
+	// return null if no match
+	return NULL;
 }
 
