@@ -129,7 +129,7 @@ triePrint(FILE *fp, KeyValueTrie *root)
  * 
  * @return may return NULL if no match. Otherwise return the TrieNode* that points to the node with the matching letter
 */
-TrieNode* trie_search_for_matching_chain(struct TrieNode **subtries, int nSubtries, TrieLetter letter) {
+TrieNode* trie_search_for_matching_chain(struct TrieNode **subtries, int nSubtries, TrieLetter letter, int *cost) {
 
 	//itterate over the list of nodes
 	for (int i = 0; i < nSubtries; i++) {

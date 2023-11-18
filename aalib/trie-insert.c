@@ -112,7 +112,7 @@ trie_link_to_chain(TrieNode *current,
 
 	// TO DO: do something with this cost variable
 
-	TrieNode *child = trie_search_for_matching_chain(current->subtries, current->nSubtries, key[keyStartPos + 1]);
+	TrieNode *child = trie_search_for_matching_chain(current->subtries, current->nSubtries, key[keyStartPos + 1], cost);
 
 	//debug insertion with linking to existing chains
 	//printf("Key: %s, currentStartPOs: %c, len-start: %ld, Child is NULL: %d\n", key, key[keyStartPos], keylength - keyStartPos, child == NULL);
@@ -170,7 +170,7 @@ trieInsertKey(KeyValueTrie *root,
 		// key, and insert the new key into the correct subtrie
 		// chain based on that letter
 
-		TrieNode *chain = trie_search_for_matching_chain(root->subtries, root->nSubtries, key[0]);
+		TrieNode *chain = trie_search_for_matching_chain(root->subtries, root->nSubtries, key[0], cost);
 
 		// check to see if we found a matching chain that already exists
 		if (chain == NULL)

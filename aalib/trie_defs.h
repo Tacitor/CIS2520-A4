@@ -42,6 +42,6 @@ void trieDeleteNode(TrieNode *node);
 int trie_subtreeSearchComparator(const void *keyValue, const void *nodePtr);
 
 /** Custom Utilities written by Lukas*/
-TrieNode *trie_search_for_matching_chain(struct TrieNode **, int, TrieLetter);
+TrieNode *trie_search_for_matching_chain(struct TrieNode **, int, TrieLetter, int *);
 
 #endif
