@@ -30,7 +30,12 @@ trie_create_chain(AAKeyType key, int keyStartPos , size_t keylength, void *value
 
 	// DONE: create a new chain the the required key letters
 
-	// TO DO: do something with this cost variable
+	// DONE: do something with this cost variable
+	// if the cost pointer isn't null then the local cost can be added on
+	if (cost != NULL)
+	{
+		(*cost)++;
+	}
 
 	current = trieCreateNode();
 
@@ -110,8 +115,6 @@ trie_link_to_chain(TrieNode *current,
 	// into this chain, forming a new branch if and when
 	// they stop matching existing letters within the subtries
 
-	// TO DO: do something with this cost variable
-
 	TrieNode *child = trie_search_for_matching_chain(current->subtries, current->nSubtries, key[keyStartPos + 1], cost);
 
 	//debug insertion with linking to existing chains
@@ -146,7 +149,7 @@ trieInsertKey(KeyValueTrie *root,
 		AAKeyType key, size_t keylength,
 		void *value, int *cost)
 {
-	// TO DO: do something with this cost variable
+	// DONE: do something with this cost variable
 
 	/** keep the max key length in order to keep a buffer for interation */
 	if (root->maxKeyLength < keylength)

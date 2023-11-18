@@ -132,31 +132,21 @@ triePrint(FILE *fp, KeyValueTrie *root)
 TrieNode *trie_search_for_matching_chain(struct TrieNode **subtries, int nSubtries, TrieLetter letter, int *cost)
 {
 
-	// create a local lost varible
-	int localCost = 0;
-
 	// itterate over the list of nodes
 	for (int i = 0; i < nSubtries; i++)
 	{
-		localCost++;
 
 		if (trie_subtreeSearchComparator(&letter, &(subtries[i])) == 0)
 		{
 
-			// if the cost pointer isn't null then the local cost can be added on
+			// if the cost pointer isn't null then increment it by 1 to account for traversing this 1 part of the chain
 			if (cost != NULL)
 			{
-				*cost += localCost;
+				(*cost)++;
 			}
 
 			return subtries[i];
 		}
-	}
-
-	// if the cost pointer isn't null then the local cost can be added on
-	if (cost != NULL)
-	{
-		*cost += localCost;
 	}
 
 	// return null if no match
