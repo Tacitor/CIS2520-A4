@@ -10,8 +10,7 @@ the use of a *hash table* based implementation.
 
 # External resources used:
 
-Have you used external tools to complete your work?
-None
+* Used binary search code from Lecure Slides 050-01-Searching-Pt2-handout-1.pdf
 
 # State of the current implementation
 
