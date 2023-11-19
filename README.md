@@ -11,6 +11,7 @@ the use of a *hash table* based implementation.
 # External resources used:
 
 * Used binary search code from Lecure Slides 050-01-Searching-Pt2-handout-1.pdf
+* Adapted psudo code from Lecure Slides 070-01-Maps-Tries-handout.pdf
 
 # State of the current implementation
 
