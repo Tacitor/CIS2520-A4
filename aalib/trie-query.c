@@ -45,7 +45,7 @@ void *trieLookupKey(
 		int *cost
 	)
 {
-	// TO DO: walk the trie to find the key, returning
+	// DONE: walk the trie to find the key, returning
 	// a value if there is one after we have finished
 	// our walk
 
