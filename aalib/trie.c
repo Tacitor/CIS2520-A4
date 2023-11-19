@@ -38,6 +38,7 @@ trie_delete_helper(TrieNode *node)
 	for (i = 0 ; i < node->nSubtries; i++) {
 		trie_delete_helper(node->subtries[i]);
 	}
+	free(node->subtries);
 	free(node);
 }
 
@@ -50,6 +51,7 @@ trieDeleteTrie(KeyValueTrie *trie)
 	for (i = 0 ; i < trie->nSubtries; i++) {
 		trie_delete_helper(trie->subtries[i]);
 	}
+	free(trie->subtries);
 	free(trie);
 }
 
