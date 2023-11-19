@@ -129,7 +129,7 @@ triePrint(FILE *fp, KeyValueTrie *root)
 /**
  *
  */
-int trie_search_for_matching_index(struct TrieNode **subtries, int nSubtries, TrieLetter letter)
+int trie_search_for_matching_index(struct TrieNode **subtries, int nSubtries, TrieLetter letter, int returnNonFail)
 {
 	int left = 0;
 	int right = nSubtries - 1;
@@ -156,11 +156,18 @@ int trie_search_for_matching_index(struct TrieNode **subtries, int nSubtries, Tr
 	}
 
 	// always return the location an index SHOULD be even if it is not there
-	if ((int)subtries[middle]->letter < (int)letter) 
+	if (returnNonFail && (int)subtries[middle]->letter < (int)letter)
 	{
 		return middle + 1;
 	}
-	return middle;
+	else if (returnNonFail)
+	{
+		return middle;
+	}
+	else
+	{
+		return -1;
+	}
 }
 
 /**
