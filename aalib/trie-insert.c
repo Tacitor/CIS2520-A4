@@ -92,7 +92,7 @@ trie_add_chain(
 		nSubtries++;
 		TrieNode **newList = malloc(sizeof(TrieNode *) * (nSubtries));
 
-		int newIndex = trie_search_for_matching_index((*subtreeListPTR), nSubtries - 1, key[0]);
+		int newIndex = trie_search_for_matching_index((*subtreeListPTR), nSubtries - 1, key[0], 1);
 
 		//debug the binary search selection
 		//printf("new index: %d, for %c\n", newIndex, key[0]);
@@ -139,14 +139,23 @@ trie_link_to_chain(TrieNode *current,
 	// into this chain, forming a new branch if and when
 	// they stop matching existing letters within the subtries
 
+	//check to see if this node can recive the value
+	if (keylength - keyStartPos == 1)
+	{
+		current->value = value;
+		current->isKeySoHasValue = 1;
+
+		//did not need to change the number of subtries
+		return current->nSubtries;
+	}
+
 	TrieNode *child = trie_search_for_matching_chain(current->subtries, current->nSubtries, key[keyStartPos + 1], cost);
 
 	//debug insertion with linking to existing chains
 	//printf("Key: %s, currentStartPOs: %c, len-start: %ld, Child is NULL: %d\n", key, key[keyStartPos], keylength - keyStartPos, child == NULL);
 
-	// Either there was no result found or
-	// key[keyStartPos + 1] is the null terminator of the string
-	if (child == NULL || (keylength - keyStartPos - 1 == 1))
+	// there was no result found
+	if (child == NULL)
 	{
 		// add the remaining letters as a side chain
 		current->nSubtries = trie_add_chain(&(current->subtries), current->nSubtries, &(key[keyStartPos + 1]), trie_create_chain(key, keyStartPos + 1, keylength, value, cost));
