@@ -125,6 +125,43 @@ triePrint(FILE *fp, KeyValueTrie *root)
 //=-=-= Custom Functions written by Lukas =-=-=
 
 /**
+ *
+ */
+int trie_search_for_matching_index(struct TrieNode **subtries, int nSubtries, TrieLetter letter)
+{
+	int left = 0;
+	int right = nSubtries - 1;
+	int middle = 0;
+
+	// loop until search range collapses
+	while (left <= right)
+	{
+		// calculate half way, round down
+		middle = (int)((left + right) / 2);
+
+		if ((int)subtries[middle]->letter < (int)letter)
+		{ // too low
+			left = middle + 1;
+		}
+		else if ((int)subtries[middle]->letter > (int)letter)
+		{ // too hight
+			right = middle - 1;
+		}
+		else
+		{
+			return middle;
+		}
+	}
+
+	// always return the location an index SHOULD be even if it is not there
+	if ((int)subtries[middle]->letter < (int)letter) 
+	{
+		return middle + 1;
+	}
+	return middle;
+}
+
+/**
  * Given a list of nodes find the node that matches the given letter.
  *
  * @return may return NULL if no match. Otherwise return the TrieNode* that points to the node with the matching letter

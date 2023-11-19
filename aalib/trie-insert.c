@@ -81,20 +81,44 @@ trie_add_chain(
 		//count this as the first subtrie
 		nSubtries = 1;
 
+		//insert it into the first index since this is a new array
+		(*subtreeListPTR)[0] = newChain;
+
 	}
 	else
 	{
 		// first increase the size of the subtree list
 		// also increment nSubtries by 1 to account for the larger size now
-		(*subtreeListPTR) = realloc((*subtreeListPTR), (sizeof(TrieNode *) * (++nSubtries)));
-	}
+		nSubtries++;
+		TrieNode **newList = malloc(sizeof(TrieNode *) * (nSubtries));
 
-	/**
-	 * TO DO: Use a Binary Search to add this in
-	 * Assume the subtreeList is already sorted because all the others chains will have been added this way
-	 */
-	// just append it for now cause that's easier
-	(*subtreeListPTR)[nSubtries - 1] = newChain;
+		int newIndex = trie_search_for_matching_index((*subtreeListPTR), nSubtries - 1, key[0]);
+
+		//debug the binary search selection
+		//printf("new index: %d, for %c\n", newIndex, key[0]);
+
+		/**
+		 * DONE: Use a Binary Search to add this in
+		 * Assume the subtreeList is already sorted because all the others chains will have been added this way
+		 */
+
+		//copy over eveything less than the newIndex as is, and shift everything over newIndex by 1
+		for (int i = 0; i < (nSubtries); i++) 
+		{
+			if (i < newIndex) {
+				newList[i] = (*subtreeListPTR)[i];
+			} else if (i == newIndex) {
+				newList[i] = newChain;
+			} else {
+				newList[i] = (*subtreeListPTR)[i - 1];
+			}
+		}
+		
+		//free the old table
+		free((*subtreeListPTR));
+		//reassign it to the new table
+		(*subtreeListPTR) = newList;
+	}
 
 	// DONE: you probably want to replace this return statement
 	// with your own code

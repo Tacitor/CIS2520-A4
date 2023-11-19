@@ -43,5 +43,6 @@ int trie_subtreeSearchComparator(const void *keyValue, const void *nodePtr);
 
 /** Custom Utilities written by Lukas*/
 TrieNode *trie_search_for_matching_chain(struct TrieNode **, int, TrieLetter, int *);
+int trie_search_for_matching_index(struct TrieNode **, int , TrieLetter );
 
 #endif
