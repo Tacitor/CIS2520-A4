@@ -21,7 +21,7 @@ static char toHex(int val)
  * printable string return value to the calling code
  */
 int
-printableKey(char *buffer, int bufferlen, AAKeyType key, size_t keylen)
+printableKeyV2(char *buffer, int bufferlen, AAKeyType key, size_t keylen)
 {
 	int i, allChars = 1;
 	char *loadptr;

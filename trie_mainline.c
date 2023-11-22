@@ -193,7 +193,7 @@ printIteratorValue(AAKeyType key, size_t keylen, void *value, void *userdata)
 
 	FILE *ofp = (FILE *) userdata;
 
-	if (printableKey(keybuffer, LINE_MAX, key, keylen) < 0) {
+	if (printableKeyV2(keybuffer, LINE_MAX, key, keylen) < 0) {
 		fprintf(stderr, "Error: key conversion failed!");
 		return -1;
 	}
