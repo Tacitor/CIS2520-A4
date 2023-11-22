@@ -15,7 +15,7 @@ the use of a *hash table* based implementation.
 
 # State of the current implementation
 
-Incomplete
+Complete
 
 # Hash tables:
 
