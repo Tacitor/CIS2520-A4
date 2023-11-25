@@ -21,22 +21,30 @@ Complete
 
 ## Strengths:
 
-* list strengths of hash tables here
+* Marginally faster when inserting from data-sets with few numbers of keys. Still within the same order of magnitude though.
+* Marginally faster when deleting from data-sets with few numbers of keys. Still within the same order of magnitude though.
+* Marginally faster when quering from data-sets with few numbers of keys. Still within the same order of magnitude though.
 
 ## Weaknesses
 
-* list weaknesses of hash tables here
+* Significatly slower when inserting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
+* Significatly slower when deleting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
+* Significatly slower when quering from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
 
 
 # Tries:
 
 ## Strengths:
 
-* list strengths of tries here
+* Significatly faster when inserting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
+* Significatly faster when deleting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
+* Significatly faster when quering from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
 
 ## Weaknesses
 
-* list weaknesses of tries here
+* Marginally slower when inserting from data-sets with few numbers of keys. Still within the same order of magnitude though.
+* Marginally slower when deleting from data-sets with few numbers of keys. Still within the same order of magnitude though.
+* Marginally slower when quering from data-sets with few numbers of keys. Still within the same order of magnitude though.
 
 
 # Summary
