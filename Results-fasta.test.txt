@@ -1,0 +1,95 @@
+lkrampit@linux-05:~/validation/A4$ ls
+a4aa      a4fastaHash  aa_mainline.c  CIS2520-F23-A4.md    cust-query.txt     data-reader.c  fasta-del.txt     fasta_mainline.o  fasta_read.o  keyprint.o   makefile             trie.h
+a4aaHash  a4trie       aa_mainline.o  cust-data-mixed.txt  data-byname.txt    data-reader.h  fasta.h           fasta-query.txt   keyprint.c    libAAhash.a  README.md            trie_mainline.c
+a4fasta   aalib        aarray.h       cust-del.txt         data-bynumber.txt  data-reader.o  fasta_mainline.c  fasta_read.c      keyprint.h    libAAtrie.a  smalldata-mixed.txt  trie_mainline.o
+lkrampit@linux-05:~/validation/A4$ nano fasta-del.txt
+lkrampit@linux-05:~/validation/A4$ nano fasta-del.txt
+lkrampit@linux-05:~/validation/A4$ nano fasta-del.txt
+lkrampit@linux-05:~/validation/A4$ nano fasta-del.txt
+lkrampit@linux-05:~/validation/A4$ valgrind -s --leak-check=full ./a4fasta -n7000 -q fasta-query.txt -d fasta-del.txt /home/courses/cis2520/data/uniprot_sprot-5000.fasta
+==2118233== Memcheck, a memory error detector
+==2118233== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==2118233== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==2118233== Command: ./a4fasta -n7000 -q fasta-query.txt -d fasta-del.txt /home/courses/cis2520/data/uniprot_sprot-5000.fasta
+==2118233==
+Inserts took 0.793029 seconds
+Associative array loaded
+DELETE: successfully deleted record with key 'P33491'
+DELETE: successfully deleted record with key 'P34955'
+DELETE: successfully deleted record with key 'Q1KY79'
+DELETE: key '734567' produced no value
+DELETE: successfully deleted record with key 'H9BZ66'
+DELETE: key '122456' produced no value
+Deletions took 0.009168 seconds
+LOOKUP: key 'Q5SSL4' produced record:
+FASTA Record:
+ID   [Q5SSL4]
+DESC [>sp|Q5SSL4|ABR_MOUSE Active breakpoint cluster region-related protein OS=Mus musculus OX=10090 GN=Abr PE=1 SV=1
+]
+SEQ  [EPLSHRGLPRLSWIDTLYSNFSYGAEDYDAEGHEEQKGPPEGSETMPYIDESPTMSPQLARSQGGGDSVSPTPPEGLAPGVEAGKGLEMRKLVLSGFLASEEIYINQLEALLLPMKPLATATTSQPVLTIQQIETIFYKIQDIYEIHKEFYDNLCPKVQQWDSQVTMGHLFQKLASQGVYKAFVDNYKVALETAEKCSQSNNQFQKISEELKVKGPKDSKDSHTSVTMEALLYKPIRVTRSTLVLHDLLKHTPVDHPDYPLLQDALRISQNFLSSINEDIDPRRTAVTTPKGETRLVKDGFLVEMSESSRKLRHVFLFTDVLLCAKLKKTSAGKHQQYDCKWYIPLADLVFPSPESEASPQVHPFPDHELEDMKTKISALKSEIQKEKANKGQSRAIERLKKKMFENEFLLLLSPTIPFRIHNRNGKSYLFLLSSDYERSEWREAIQKLQKKDLQAFVLSSVELQVLTGSCFLRTVHNIPVTSNKDDDESPGLYGFLHVIVHSAKGFKQSANLYCTLEVDSFGYFVSKAKTVFRDTTEPKWDEEFEIELEGSQSLRILCYEKCYDKTKVNKDNNEIVDKIMGKGQIQLDPTVESKNWHTDVIEMNGIKVEFSMKFTSRDMSLKRTPSKKQTGVFGVKISVVTKRERSKVYIVRQCIEEVEKRGIEEVGIYRISGVATDIQALKAVFDANNKDILLMLSDMDINAIAGTKLYFRELPEPLLTDRLYPAFMEGIALSDPAAKENCMMHLLRSLPDPNLITFLFLLEHLKVAEKEPINKMSLHNLATVFGPTLLRPSEVESKAHLTSAADIWSHDVMAQVQVLLYYLQHPISFAELKRNTLYFSTDV]
+LOOKUP: key 'P33491' produced no value
+LOOKUP: key 'B0XTS5' produced record:
+FASTA Record:
+ID   [B0XTS5]
+DESC [>sp|B0XTS5|ABNB_ASPFC Probable arabinan endo-1,5-alpha-L-arabinosidase B OS=Aspergillus fumigatus (strain CBS 144.89 / FGSC A1163 / CEA10) OX=451804 GN=abnB PE=3 SV=2
+]
+SEQ  [TVLVALFCLVTWTLCTRIPQYSTQGTQQPQQPEKTPHPHPQPEDAFPPTHATDLKIHDPIIHVDGTYYSYSVGRHIRIHQAPSLDGPWERTGAVLNADSVIPKGDRKAPWAPQTVHHNTYYCFYAVSNSGCRDSAIGVATSKSPGPGGWTDHGLLVQSGTGKGSDEHPFTSSNTIDPVFVGEDGHGYLMFGSFWSGIWQVPLDESLLSVAGDTSSEARQLVYMEKAPLPASKHPNPCREPSGARPIEGSFLSYHEPWYYLWFSYGKCCKFDTKNLPPPGREYSIRVGRSKSPRGPVDKQGRDLANGGGEIVYASNRDVYAPGGQGVLTEKSGDILYYHYCRYPVIQEIEVDADLVNKSTSYDFWV]
+LOOKUP: key '734567' produced no value
+LOOKUP: key 'H9BZ66' produced no value
+Queries took 0.005727 seconds
+==2118233==
+==2118233== HEAP SUMMARY:
+==2118233==     in use at exit: 0 bytes in 0 blocks
+==2118233==   total heap usage: 39,442 allocs, 39,442 frees, 3,308,683 bytes allocated
+==2118233==
+==2118233== All heap blocks were freed -- no leaks are possible
+==2118233==
+==2118233== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$ valgrind -s --leak-check=full ./a4fastaHash -n7000 -q fasta-query.txt -d fasta-del.txt /home/courses/cis2520/data/uniprot_sprot-5000.fasta
+==2118540== Memcheck, a memory error detector
+==2118540== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==2118540== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==2118540== Command: ./a4fastaHash -n7000 -q fasta-query.txt -d fasta-del.txt /home/courses/cis2520/data/uniprot_sprot-5000.fasta
+==2118540==
+Inserts took 5.405986 seconds
+Associative array loaded
+DELETE: successfully deleted record with key 'P33491'
+DELETE: successfully deleted record with key 'P34955'
+DELETE: successfully deleted record with key 'Q1KY79'
+DELETE: key '734567' produced no value
+DELETE: successfully deleted record with key 'H9BZ66'
+DELETE: key '122456' produced no value
+Deletions took 0.015895 seconds
+LOOKUP: key 'Q5SSL4' produced record:
+FASTA Record:
+ID   [Q5SSL4]
+DESC [>sp|Q5SSL4|ABR_MOUSE Active breakpoint cluster region-related protein OS=Mus musculus OX=10090 GN=Abr PE=1 SV=1
+]
+SEQ  [EPLSHRGLPRLSWIDTLYSNFSYGAEDYDAEGHEEQKGPPEGSETMPYIDESPTMSPQLARSQGGGDSVSPTPPEGLAPGVEAGKGLEMRKLVLSGFLASEEIYINQLEALLLPMKPLATATTSQPVLTIQQIETIFYKIQDIYEIHKEFYDNLCPKVQQWDSQVTMGHLFQKLASQGVYKAFVDNYKVALETAEKCSQSNNQFQKISEELKVKGPKDSKDSHTSVTMEALLYKPIRVTRSTLVLHDLLKHTPVDHPDYPLLQDALRISQNFLSSINEDIDPRRTAVTTPKGETRLVKDGFLVEMSESSRKLRHVFLFTDVLLCAKLKKTSAGKHQQYDCKWYIPLADLVFPSPESEASPQVHPFPDHELEDMKTKISALKSEIQKEKANKGQSRAIERLKKKMFENEFLLLLSPTIPFRIHNRNGKSYLFLLSSDYERSEWREAIQKLQKKDLQAFVLSSVELQVLTGSCFLRTVHNIPVTSNKDDDESPGLYGFLHVIVHSAKGFKQSANLYCTLEVDSFGYFVSKAKTVFRDTTEPKWDEEFEIELEGSQSLRILCYEKCYDKTKVNKDNNEIVDKIMGKGQIQLDPTVESKNWHTDVIEMNGIKVEFSMKFTSRDMSLKRTPSKKQTGVFGVKISVVTKRERSKVYIVRQCIEEVEKRGIEEVGIYRISGVATDIQALKAVFDANNKDILLMLSDMDINAIAGTKLYFRELPEPLLTDRLYPAFMEGIALSDPAAKENCMMHLLRSLPDPNLITFLFLLEHLKVAEKEPINKMSLHNLATVFGPTLLRPSEVESKAHLTSAADIWSHDVMAQVQVLLYYLQHPISFAELKRNTLYFSTDV]
+LOOKUP: key 'P33491' produced no value
+LOOKUP: key 'B0XTS5' produced record:
+FASTA Record:
+ID   [B0XTS5]
+DESC [>sp|B0XTS5|ABNB_ASPFC Probable arabinan endo-1,5-alpha-L-arabinosidase B OS=Aspergillus fumigatus (strain CBS 144.89 / FGSC A1163 / CEA10) OX=451804 GN=abnB PE=3 SV=2
+]
+SEQ  [TVLVALFCLVTWTLCTRIPQYSTQGTQQPQQPEKTPHPHPQPEDAFPPTHATDLKIHDPIIHVDGTYYSYSVGRHIRIHQAPSLDGPWERTGAVLNADSVIPKGDRKAPWAPQTVHHNTYYCFYAVSNSGCRDSAIGVATSKSPGPGGWTDHGLLVQSGTGKGSDEHPFTSSNTIDPVFVGEDGHGYLMFGSFWSGIWQVPLDESLLSVAGDTSSEARQLVYMEKAPLPASKHPNPCREPSGARPIEGSFLSYHEPWYYLWFSYGKCCKFDTKNLPPPGREYSIRVGRSKSPRGPVDKQGRDLANGGGEIVYASNRDVYAPGGQGVLTEKSGDILYYHYCRYPVIQEIEVDADLVNKSTSYDFWV]
+LOOKUP: key '734567' produced no value
+LOOKUP: key 'H9BZ66' produced no value
+Queries took 0.016686 seconds
+==2118540==
+==2118540== HEAP SUMMARY:
+==2118540==     in use at exit: 0 bytes in 0 blocks
+==2118540==   total heap usage: 20,013 allocs, 20,013 frees, 2,925,280 bytes allocated
+==2118540==
+==2118540== All heap blocks were freed -- no leaks are possible
+==2118540==
+==2118540== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+lkrampit@linux-05:~/validation/A4$
