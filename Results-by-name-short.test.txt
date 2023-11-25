@@ -1,0 +1,93 @@
+lkrampit@linux-05:~/validation/A4$ valgrind -s --leak-check=full ./a4aaHash -n120 -q cust-query.txt -d cust-del.txt data-byname.txt
+==2103660== Memcheck, a memory error detector
+==2103660== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==2103660== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==2103660== Command: ./a4aaHash -n120 -q cust-query.txt -d cust-del.txt data-byname.txt
+==2103660==
+Inserts took 0.016581 seconds
+Associative array loaded
+DELETE: key 'Asparagus' produced value 'Asparagus officinalis'
+DELETE: key '5' produced no value
+DELETE: key 'Banyan' produced value 'Ficus benghalensis'
+DELETE: key '9' produced no value
+DELETE: key 'Carrot' produced value 'Daucus carota subsp.  sativus'
+DELETE: key 'Bamboom' produced no value
+DELETE: key 'Mint (Pudina)' produced value 'Mentha arvensis'
+DELETE: key 'Bamboo' produced value 'Bamboosa aridinarifolia'
+DELETE: key 'Apple' produced value 'Pyrus malus'
+Deletions took 0.005132 seconds
+LOOKUP: key 'Asparagus' produced no value
+LOOKUP: key '5' produced no value
+LOOKUP: key 'Tomato' produced value 'Solanum lycopersicum L.'
+LOOKUP: key 'Banyan' produced no value
+LOOKUP: key '9' produced no value
+LOOKUP: key 'Lettuce' produced value 'Lactuca sativa'
+LOOKUP: key 'Bamboom' produced no value
+LOOKUP: key 'Bamboo' produced no value
+LOOKUP: key 'Apple' produced no value
+Queries took 0.002353 seconds
+Associative array contains 106 entries in a table of 127 size
+Strategies used: 'sum' hash, 'len' secondary hash and 'lin' probing
+Costs accrued due to probing:
+  Insertion : 350
+  Search    : 99
+  Deletion  : 27
+==2103660==
+==2103660== HEAP SUMMARY:
+==2103660==     in use at exit: 0 bytes in 0 blocks
+==2103660==   total heap usage: 236 allocs, 236 frees, 34,222 bytes allocated
+==2103660==
+==2103660== All heap blocks were freed -- no leaks are possible
+==2103660==
+==2103660== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$
+lkrampit@linux-05:~/validation/A4$ valgrind -s --leak-check=full ./a4aa -n120 -q cust-query.txt -d cust-del.txt data-byname.txt
+==2103724== Memcheck, a memory error detector
+==2103724== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==2103724== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==2103724== Command: ./a4aa -n120 -q cust-query.txt -d cust-del.txt data-byname.txt
+==2103724==
+Inserts took 0.025185 seconds
+Associative array loaded
+DELETE: key 'Asparagus' produced value 'Asparagus officinalis'
+DELETE: key '5' produced no value
+DELETE: key 'Banyan' produced value 'Ficus benghalensis'
+DELETE: key '9' produced no value
+DELETE: key 'Carrot' produced value 'Daucus carota subsp.  sativus'
+DELETE: key 'Bamboom' produced no value
+DELETE: key 'Mint (Pudina)' produced value 'Mentha arvensis'
+DELETE: key 'Bamboo' produced value 'Bamboosa aridinarifolia'
+DELETE: key 'Apple' produced value 'Pyrus malus'
+Deletions took 0.007425 seconds
+LOOKUP: key 'Asparagus' produced no value
+LOOKUP: key '5' produced no value
+LOOKUP: key 'Tomato' produced value 'Solanum lycopersicum L.'
+LOOKUP: key 'Banyan' produced no value
+LOOKUP: key '9' produced no value
+LOOKUP: key 'Lettuce' produced value 'Lactuca sativa'
+LOOKUP: key 'Bamboom' produced no value
+LOOKUP: key 'Bamboo' produced no value
+LOOKUP: key 'Apple' produced no value
+Queries took 0.003009 seconds
+Associative array contains 0 entries
+Costs accrued while processing keys:
+  Insertion : 1002
+  Search    : 23
+  Deletion  : 51
+==2103724==
+==2103724== HEAP SUMMARY:
+==2103724==     in use at exit: 0 bytes in 0 blocks
+==2103724==   total heap usage: 1,783 allocs, 1,783 frees, 64,510 bytes allocated
+==2103724==
+==2103724== All heap blocks were freed -- no leaks are possible
+==2103724==
+==2103724== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+lkrampit@linux-05:~/validation/A4$

@@ -7,6 +7,6 @@
 /**
  * Fill a buffer with the key value
  */
-int printableKey(char *buffer, int bufferlen, AAKeyType key, size_t keylen);
+int printableKeyV2(char *buffer, int bufferlen, AAKeyType key, size_t keylen);
 
 #endif
