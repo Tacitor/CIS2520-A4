@@ -10,8 +10,8 @@ the use of a *hash table* based implementation.
 
 # External resources used:
 
-* Used binary search code from Lecure Slides 050-01-Searching-Pt2-handout-1.pdf
-* Adapted psudo code from Lecure Slides 070-01-Maps-Tries-handout.pdf
+* Used binary search code from Lecture Slides 050-01-Searching-Pt2-handout-1.pdf
+* Adapted pseudo code from Lecture Slides 070-01-Maps-Tries-handout.pdf
 
 # State of the current implementation
 
@@ -23,29 +23,29 @@ Complete
 
 * Marginally faster when inserting from data-sets with few numbers of keys. Still within the same order of magnitude though.
 * Marginally faster when deleting from data-sets with few numbers of keys. Still within the same order of magnitude though.
-* Marginally faster when quering from data-sets with few numbers of keys. Still within the same order of magnitude though.
+* Marginally faster when querying from data-sets with few numbers of keys. Still within the same order of magnitude though.
+* Better performance with smaller data sets. Though this can vary with different hashing and probing algorithms
 
 ## Weaknesses
 
-* Significatly slower when inserting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
-* Significatly slower when deleting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
-* Significatly slower when quering from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
-
+* Significantly slower when inserting from data-sets with many keys (5000+). Slower by at least 1 order of magnitude.
+* Significantly slower when deleting from data-sets with many keys (5000+). Slower by at least 1 order of magnitude.
+* Significantly slower when querying from data-sets with many keys (5000+). Slower by at least 1 order of magnitude.
 
 # Tries:
 
 ## Strengths:
 
-* Significatly faster when inserting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
-* Significatly faster when deleting from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
-* Significatly faster when quering from data-sets with many keys (5000+). Slower by atleast 1 order of magnitude.
+* Significantly faster when inserting from data-sets with many keys (5000+). Faster by at least 1 order of magnitude.
+* Significantly faster when deleting from data-sets with many keys (5000+). Faster by at least 1 order of magnitude.
+* Significantly faster when querying from data-sets with many keys (5000+). Faster by at least 1 order of magnitude.
+* Better performance with shorter keys since less nodes need to be traversed to reach the value.
 
 ## Weaknesses
 
 * Marginally slower when inserting from data-sets with few numbers of keys. Still within the same order of magnitude though.
 * Marginally slower when deleting from data-sets with few numbers of keys. Still within the same order of magnitude though.
-* Marginally slower when quering from data-sets with few numbers of keys. Still within the same order of magnitude though.
-
+* Marginally slower when querying from data-sets with few numbers of keys. Still within the same order of magnitude though.
 
 # Summary
 
@@ -56,13 +56,12 @@ list are true and any of the conditions in the **preferred** list
 are true.
 
 ### Hash table **required** conditions
-* condition
-* condition
+* One is using key/value paired data.
+* If one has a large data-set a large block of memory need be able to be allocated.
 
 ### Hash table **preferred** conditions
-* condition
-* condition
-
+* Few deletions will be made
+* Queries mostly made for keys that are actually stored in the table
 
 
 ## Conditions that would make a trie appropriate:
@@ -72,11 +71,11 @@ list are true and any of the conditions in the **preferred** list
 are true.
 
 ### Trie **required** conditions
-* condition
-* condition
+* One is using key/value paired data
+* All keys are string-based or can be treated as strings without issues
+* Data can be stored in lexicographic ordering
 
 ### Trie **preferred** conditions
-* condition
-* condition
+* Keys are short
 
 
